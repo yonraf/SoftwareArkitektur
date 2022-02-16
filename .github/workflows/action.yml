@@ -2,15 +2,15 @@ name: My build and deploy action
 on:
   push:
     branches:
-      -main
+      - main
 jobs:
   build-and-deploy-job:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v2
-      -name: Login to container registry
+      - uses: actions/checkout@v2
+      - name: Login to container registry
         run: |
           docker login https://ghcr.io -u ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_KEY}}
-      -name: Build and push image to registry
+      - name: Build and push image to registry
         run: |
-          docker buildxbuild --push -t ${{ secrets.DOCKER_TAG}} .
+          docker buildxbuild --push -t ${{ secrets.DOCKER_TAG }} .
