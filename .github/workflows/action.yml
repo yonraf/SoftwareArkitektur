@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Login to container registry
         run: |
-          docker login https://ghcr.io -u ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_KEY}}
+          docker login https://ghcr.io -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_KEY }}
       - name: Build and push image to registry
         run: |
-          docker buildxbuild --push -t ${{ secrets.DOCKER_TAG }} .
+          docker buildx build --push -t ${{ secrets.DOCKER_TAG }} .
